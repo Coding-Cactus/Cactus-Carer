@@ -1,0 +1,68 @@
+<header id="top">
+	<h1>Cactus Carer</h1>
+	<h3>The Alexa skill that keeps your cacti alive</h3>
+	<div id="get-started-wrapper">
+		<button onclick="location.href='#setup-page'">Get Started</button>
+	</div>
+</header>
+
+<main>
+	<div id="setup-page">
+		<div id="setup">
+			<div id="content-wrapper">
+				<h3 id="title">Adding the skill</h3>
+
+				<div id="content">
+					<p>First you need add the skill to your alexa enabled device. There are 3 ways you can do this:</p>
+
+					<ol>
+						<li>Go <a href="https://www.amazon.co.uk/dp/B09DSSXFX7">here</a> and click "Enable"</li>
+						<li>On the Alexa app on your mobile device, go to the "Skills & Games" section and search "Cactus Carer". Then tap the skill and press "Enable Use"</li>
+						<li>Say to your Amazon Echo "Alexa, enable Cactus Carer"</li>
+					</ol>
+				</div>
+			</div>
+			<nav>
+				<button style="opacity: 0; pointer-events: none"><ion-icon name="arrow-back-outline"></ion-icon> <span>Back</span></button>
+				<button><span>Next Step</span> <ion-icon name="arrow-forward-outline"></ion-icon></button>
+			</nav>
+		</div>
+
+		<script src="/js/setup-pages.js"></script>
+	</div>
+
+	<div id="phrases-page">
+		<div id="tell">
+			<h2>Alexa, tell cactus carer...</h2><!--
+			--><div class="list">
+				<ul>
+					<li>I have a cactus called {name}</li>
+					<li>I don't have a cactus called {name} anymore</li>
+					<li>I watered {name}</li>
+					<li>I fed {name}</li>
+					<li>I waterd {name} {number} days ago</li>
+					<li>I fed {name} {number} days ago</li>
+					<li>{old_name} is now called {new_name}</li>
+					<li>I am in the {north/south} hemisphere</li>
+					<li>Delete all my data</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="ask">
+			<h2>Alexa, ask cactus carer...</h2>
+			<div class="list">
+				<ul>
+					<li>What do my cacti need today?</li>
+					<li>What does {name} need?</li>
+					<li>What cacti are you taking care of?</li>
+					<li>Who is the next cactus to need watering?</li>
+					<li>Who is the next cactus need feeding?</li>
+					<li>When is the next time I need to water a cactus?</li>
+					<li>When is the next time I need to feed a cactus?</li>
+					<li>What is my user code?</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</main>

@@ -1,0 +1,846 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Raleway&display=swap');
+
+:root {
+	--background: #ebebeb;
+	--foreground: #000000;
+	--highlight: #7bc950;
+	--text-outline: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body, html {
+	font-family: 'Raleway', sans-serif;
+	background-color: var(--background);
+	color: var(--foreground);
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+a {
+	color: var(--highlight);
+	text-decoration: none;
+	position: relative;
+}
+
+a::after, #setup nav button::after {
+	content: "";
+	position: absolute;
+	bottom: 2px;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background-color: transparent;
+	transition: background-color 0.2s;
+}
+
+a:hover::after, #setup nav button:hover::after {
+	background-color: var(--highlight);
+}
+
+ion-icon {
+	transform: scale(1.25) translateY(-1%);
+	vertical-align: middle;
+}
+
+ion-icon + *, button span {
+	vertical-align: middle;
+}
+
+
+
+#navbar {
+	z-index: 9999;
+	width: 100vw;
+	padding-left: 0;
+	background-color: rgba(255, 255, 255, 0.95);
+	box-shadow: 0 0 10px 0.5px #888;
+	position: fixed;
+	top: 0;
+	left: 0;
+	font-size: 22px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#navbar #left {
+	width: max-content;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+#navbar #left a {
+	margin: 20px;
+}
+
+#navbar #right {
+	display: flex;
+	margin-right: 30px;
+}
+
+#navbar #user {
+	position: relative;
+	margin: 20px;
+}
+
+#navbar #user > ion-icon {
+	color: var(--highlight);
+	font-size: 30px;
+	cursor: pointer;
+}
+
+#navbar #dropdown {
+	display: none;
+	position: absolute;
+	top: calc(100% + 10px);
+	right: 0;
+	height: max-content;
+	width: max-content;
+	background-color: #fff;
+	padding: 6px;
+	border-radius: 5px;
+	box-shadow: 0 0 5px 0.5px #aaa;
+}
+
+#navbar #dropdown.show {
+	display: block;
+}
+
+#navbar #dropdown div {
+	margin: 5px 0;
+	padding: 7px;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+#navbar select {
+	vertical-align: middle;
+	font-size: 22px;
+	border: none;
+	background-color: #e7e7e7;
+	border-radius: 4px;
+}
+
+#navbar #dropdown div:not(:first-child):hover {
+	background-color: #c44;
+	color: #fff;
+}
+
+#navbar #dropdown div {
+	color: #c00;
+}
+
+#navbar #dropdown div:first-child {
+	color: #000;
+	cursor: default;
+}
+
+
+header {
+	background-image: url("/media/header-img.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+}
+
+header h1 {
+	position: absolute;
+	width: 100%;
+	top: 15%;
+	left: 0;
+	padding: 0 5vw;
+	font-size: 12vh;
+	color: #fff;
+	text-shadow: var(--text-outline);
+}
+
+header h3 {
+	position: absolute;
+	width: 100%;
+	top: 40%;
+	left: 0;
+	text-align: right;
+	padding: 0 5vw;
+	font-size: 5vh;
+	color: var(--highlight);
+	text-shadow: var(--text-outline);
+}
+
+header #get-started-wrapper {
+	position: absolute;
+	top: 75%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+header button {
+	background-color: transparent;
+	border: 0.75vh solid var(--highlight);
+	padding: 1.5vh;
+	font-size: 5vh;
+	border-radius: 1vh;
+	box-shadow: 0 1vh 1vh #000;
+	color: var(--highlight);
+	text-shadow: var(--text-outline);
+	transition: box-shadow 0.3s;
+}
+
+header button:hover {
+	cursor: pointer;
+	box-shadow: 0 0.5vh 0.5vh #000;
+}
+
+header button:active {
+	box-shadow: none;
+}
+
+
+main {
+	background-color: var(--background);
+	color: var(--foreground);
+	background-image: url("/media/setup-cacti.png");
+	background-repeat: repeat;
+}
+
+#setup-page {
+	position: relative;
+	height: 100vh;
+}
+
+#setup {
+	width: 60vw;
+	background-color: #fff;
+	height: 60vh;
+	position: absolute;
+	top: calc(20vh + 50px);
+	left: 20vw;
+	box-shadow: 0 0 2vh 0.25vh #777;
+	border-radius: 2vh;
+	padding: 3vh;
+}
+
+#setup-page h1 {
+	text-align: center;
+	font-size: 50px;
+	padding-top: 6vh;
+}
+
+#setup #content-wrapper {
+	height: 100%;
+	display: grid;
+	grid-template-rows: 4vh;
+	transition: opacity 0.3s;
+}
+
+#setup #content {
+	padding: 3vh;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#setup #content {
+	font-size: 20px;
+}
+
+#setup h3 {
+	font-size: 40px;
+	text-align: center;
+}
+
+#setup #content ol, #setup #content ul {
+	padding-top: 10px;
+	margin-left: 50px;
+}
+
+#setup nav {
+	position: absolute;
+	bottom: 3vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: calc(100% - 6vh);
+	left: 3vh;
+}
+
+#setup nav button {
+	position: relative;
+	background-color: transparent;
+	border: none;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+#setup nav button ion-icon {
+	transition: transform 0.3s;
+}
+
+#setup nav button:hover ion-icon {
+	transform: translateX(5px) scale(1.25) translateY(-1%);
+}
+
+#setup nav button:active ion-icon {
+	transform: translateX(7px) scale(1.25) translateY(-1%);
+}
+
+#setup nav button:first-child:hover ion-icon {
+	transform: translateX(-5px) scale(1.25) translateY(-1%);
+}
+
+#setup nav button:first-child:active ion-icon {
+	transform: translateX(-7px) scale(1.25) translateY(-1%);
+}
+
+#setup nav button:last-child {
+	color: var(--highlight);
+}
+
+#setup nav button:first-child:hover::after {
+	background-color: #000;
+}
+
+
+
+#phrases-page {
+	position: relative;
+	min-height: 100vh;
+	padding-top: 100px;
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+}
+
+#phrases-page > div {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+#phrases-page h2 {
+	font-size: 3.5vw;
+	margin: auto;
+	text-align: center;
+	position: relative;
+}
+
+#phrases-page h2::before {
+	content: "“";
+	font-family: 'Noto Sans JP', sans-serif;
+	color: var(--highlight);
+	font-size: 150%;
+	top: -60%;
+	left: -5%;
+	position: absolute;
+	animation: 1.25s linear infinite wave;
+}
+
+@keyframes wave {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	50% {
+		transform: rotate(15deg);
+	}
+
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+#phrases-page .list {
+	margin: auto;
+	background-color: #fff;
+	border-radius: 25px;
+	box-shadow: 0 0 15px 5px #aaa;
+	padding: 4vh;
+	font-size: 1.25vw;
+	width: 80%;
+}
+
+#phrases-page ul {
+	margin-left: 20px;
+	list-style: none;
+}
+
+#phrases-page ul li::before {
+	content: "\2022"; 
+	color: var(--highlight);
+	font-weight: bold;
+	display: inline-block;
+	width: 1em;
+	margin-left: -1em;
+	transform: scale(1.5);
+}
+
+
+
+
+#login-page {
+	height: 100vh;
+	background-image: url("/media/login-bg.png");
+	background-size: cover;
+	background-position-y: center;
+	background-position-x: -10px;
+	position: relative;
+	overflow: hidden;
+}
+
+#login-page > p {
+	font-style: italic;
+	color: #fff;
+	font-size: 5vw;
+	max-width: calc(100vw - 500px);
+	position: absolute;
+	top: calc(2.5vh + 50px);
+	left: 5vw;
+}
+
+#login-wrapper {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100vh;
+	width: calc(400px + 11vh);
+	transition: transform 1s;
+}
+
+#login-page #login-container {
+	height: 100vh;
+	width: 400px;
+	position: absolute;;
+	top: 0;
+	right: 0;
+	background-color: var(--background);
+	padding: 20px;
+	padding-left: 0;
+}
+
+#login-page #login-container-triangle {
+	display: block;
+	position: absolute;
+	right: 400px;
+	height: 100vh;
+	width: 11vh;
+}
+
+#login-page #login-container-triangle path {
+	stroke: var(--background);
+	fill: var(--background);
+}
+
+#login-page form {
+	display: block;
+	margin: auto;
+}
+
+#login-page h1 {
+	font-size: 35px;
+	font-weight: 600;
+	padding-top: 7.5vh;
+	padding-bottom: 5vh;
+}
+
+#login-page label {
+	vertical-align: middle;
+	font-size: 20px;
+}
+
+label + #hint {
+	vertical-align: middle;
+	position: relative;
+	color: var(--highlight);
+}
+
+label + #hint #hint-text {
+	display: block;
+	visibility: hidden;
+	position: absolute;
+	top: calc(-50% - 9px);
+	left: calc(100% + 5px);
+	width: 200px;
+	padding: 6px;
+	opacity: 0;
+	font-size: 12px;
+	background-color: #2f2a34;
+	color: #fff;
+	border-radius: 4px;
+	box-shadow: 0 0 5px 0.5px #000;
+	transform: translateX(-50%) scale(0);
+	transition: all 0.3s;
+}
+
+label + #hint:hover #hint-text {
+	visibility: visible;
+	opacity: 1;
+	transform: translateX(0) scale(1);
+}
+
+#login-page input {
+	display: block;
+	width: 100%;
+	margin-top: 10px;
+	font-size: 25px;
+	border: none;
+	border-bottom: 5px solid #999;
+	outline: none;
+	padding: 6px;
+	background-color: #ddd;
+	transition: border 0.3s;
+}
+
+#login-page input:focus {
+	border-bottom: 5px solid var(--highlight);
+}
+
+#login-page .error {
+	height: 16px;
+	font-size: 16px;
+	color: #c00;
+}
+
+#login-page button {
+	display: block;
+	width: 100%;
+	margin-top: 50px;
+	font-size: 25px;
+	background-color: var(--highlight);
+	border: 3px solid var(--background);
+	padding: 6px;
+	border-radius: 10px;
+	color: #fff;
+	transition: all 0.3s;
+}
+
+#login-page button:disabled {
+	background-color: #ddd;
+	pointer-events: none;
+	color: #333;
+}
+
+#login-page button:hover {
+	cursor: pointer;
+	border-color: #ccc;
+}
+
+#login-page button:active {
+	border-color: #48c94b;
+}
+
+
+#dashboard-page {
+	background-image: url("/media/setup-cacti.png");
+	min-height: 100vh;
+}
+
+#dashboard-page h1 {
+	text-align: center;
+	font-size: 75px;
+	padding: 20px 0;
+	padding-top: 75px;
+}
+
+#dashboard-page #cacti {
+	width: 1000px;
+	margin: 0 auto;
+	background-color: #fff;
+	padding: 50px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px 2px #999;
+}
+
+@media screen and (max-width: 1250px) {
+	#dashboard-page #cacti {
+		width: 80%;
+	}
+}
+
+#dashboard-page #cacti #new-cactus label {
+	vertical-align: middle;
+	font-size: 20px;
+}
+
+#dashboard-page #cacti #new-cactus input {
+	display: inline-block;
+	width: 300px;
+	height: max-content;
+	border: none;
+	outline: none;
+	font-size: 22px;
+	padding: 6px;
+	background-color:#fff;
+	border-bottom: 4px solid #aaa;
+	transition: border 0.3s;
+}
+
+#dashboard-page #cacti #new-cactus input:focus {
+	border-bottom: 4px solid var(--highlight);
+}
+
+#dashboard-page #cacti #new-cactus button:disabled {
+	background-color: #ddd;
+	pointer-events: none;
+	color: #333;
+}
+
+#dashboard-page #cacti #new-cactus .error {
+	height: 15px;
+	font-size: 15px;
+	color: #c00;
+}
+
+#dashboard-page #cacti #new-cactus button {
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+	font-size: 22px;
+	background-color: var(--highlight);
+	border: 3px solid #fff;
+	padding: 6px;
+	border-radius: 10px;
+	color: #fff;
+	transition: all 0.3s;
+}
+
+#dashboard-page #cacti #new-cactus button:hover {
+	cursor: pointer;
+	border-color: #ddd;
+}
+
+#dashboard-page #cacti #new-cactus button:active {
+	border-color: #48c94b;
+}
+
+#dashboard-page #cacti .cactus, #dashboard-page #cacti #headers {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 0.5fr;
+	gap: 0;
+}
+
+#dashboard-page #cacti .cactus div, #dashboard-page #cacti #headers div {
+	width: 100%;
+	font-size: 25px;
+	text-align: center;
+	padding: 20px 15px;
+}
+
+#dashboard-page #cacti .cactus div:first-child {
+	padding: 14px 9px;
+}
+
+#dashboard-page #cacti #headers div {
+	font-size: 30px;
+}
+
+#dashboard-page #cacti .cactus, #dashboard-page #cacti #headers {
+	border-bottom: 1px solid #000;
+}
+
+#dashboard-page #cacti .cactus .cactus-name {
+	display: block;
+	width: 100%;
+	height: max-content;
+	margin: auto;
+	border: none;
+	outline: none;
+	font-size: 25px;
+	padding: 6px;
+	background-color:#fff;
+	text-align: center;
+	border-bottom: 2px solid #fff;
+	transition: border 0.3s;
+}
+
+
+#dashboard-page #cacti .cactus .cactus-name:hover {
+	border-bottom: 2px solid #aaa;
+}
+
+#dashboard-page #cacti .cactus .cactus-name:focus {
+	border-bottom: 2px solid var(--highlight);
+}
+
+#dashboard-page .cactus-name, #dashboard-page .cactus div:not(:last-child) {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#dashboard-page #cacti .cactus .error {
+	font-size: 15px;
+	color: #c00;
+}
+
+#dashboard-page .water, #dashboard-page .feed, #dashboard-page .remove {
+	border: none;
+	background: transparent;
+	outline: none;
+	font-size: inherit;
+	cursor: pointer;
+	margin: 5px;
+}
+#dashboard-page .water {
+	color: #0cc;
+}
+
+#dashboard-page .feed {
+	color: #cc0;
+}
+
+#dashboard-page .remove {
+	color: #c00;
+	margin-right: 0;
+}
+
+
+@media screen and (max-width: 700px) {
+	#navbar {
+		font-size: 15px;
+		padding: 10px;
+	}
+
+	#navbar select {
+		font-size: 15px;
+	}
+
+	#navbar #left a {
+		margin: 10px;
+	}
+
+	#navbar #right {
+		margin-right: 10px;
+	}
+
+	#navbar #user {
+		margin: 0;
+	}
+
+
+	header h1 {
+		padding-top: 10vh;
+		position: static;
+		font-size: 15vw;
+		width: 100%;
+	}
+
+	header h3 {
+		text-align: left;
+		position: static;
+		font-size: 5vw;
+		width: 100%;
+	}
+
+
+
+	#setup {
+		height: 80vh;
+		width: 80vw;
+		left: 10vw;
+		top: 12.5vh;
+	}
+
+	#setup-page h1 {
+		padding-top: 10px;
+		font-size: 30px;
+	}
+
+	#setup h3 {
+		font-size: 20px;
+	}
+
+	#setup #content {
+		font-size: 15px;
+	}
+
+	#setup #content ol, #setup #content ul {
+		margin-left: 20px;
+	}
+
+
+	#phrases-page {
+		display: block;
+		padding: 25px 0;
+	}
+
+	#phrases-page h2 {
+		font-size: 30px;
+		margin: 20px 15px;
+		margin-top: 50px;
+	}
+
+	#phrases-page > div {
+		display: block;
+	}
+
+	#phrases-page .list {
+		width: 80vw;
+		font-size: 16px;
+		margin: 5px auto;
+	}
+
+
+
+	#login-page {
+		background-image: none;
+	}
+
+	#login-page > p {
+		display: none;
+	}
+
+	#login-wrapper {
+		width: 100vw;
+	}
+
+	#login-page #login-container {
+		position: static;
+		width: 100vw;
+		height: 100vh;
+		padding: 50px;
+	}
+
+	#login-page #login-container-triangle {
+		display: none;
+	}
+
+
+
+	#dashboard-page #cacti {
+		width: 90%;
+		padding: 10px;
+	}
+
+	#dashboard-page #cacti #new-cactus input, #dashboard-page #cacti #new-cactus button {
+		width: 100%;
+	}
+
+	#dashboard-page #cacti #headers div, #dashboard-page #cacti .cactus div {
+		font-size: 16px;
+		padding: 6px;
+	}
+
+	#dashboard-page #cacti .cactus div:first-child {
+		padding: 0;
+	}
+
+	#dashboard-page #cacti .cactus div, #dashboard-page #cacti .cactus .cactus-name {
+		font-size: 12px;
+	}
+
+	#dashboard-page .water, #dashboard-page .feed, #dashboard-page .remove {
+		margin-right: 0;
+		font-size: 18px;
+	}
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Cactus Carer</title>
+		<link href="/css/style.css" rel="stylesheet" type="text/css" />
+		<script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+	</head>
+	<body>
+		<nav id="navbar">
+			<div id="left">
+				<a href="/#top">Home</a>
+				<a href="/#phrases-page">Phrases</a>
+				<a href="/dashboard">Dashboard</a>
+			</div>
+
+			<div id="right">
+				<% if session.include?(:user_code) %>
+					<div id="user">
+						<ion-icon name="person-circle-outline"></ion-icon>
+						<div id="dropdown">
+							<div>
+								<ion-icon name="globe-outline"></ion-icon> <span>Hemisphere</span>
+								<select id="hemisphere">
+									<option <%= @user.hemisphere == "north" ? "selected" : "" %>>North</option>
+									<option <%= @user.hemisphere == "south" ? "selected" : "" %>>South</option>
+								</select>
+							</div>
+							<div id="delete-all">
+								<ion-icon name="trash-outline"></ion-icon> <span>Delete All Data</span>
+							</div>
+							<div id="log-out">
+								<ion-icon name="exit-outline"></ion-icon> <span>Log Out</span>
+							</div>
+						</div>
+					</div>
+				<% else %>
+					<a href="/login">Log In</a>
+				<% end %>
+			</div>
+		</nav>
+		<% if session.include?(:user_code) %>
+			<script src="/js/nav.js"></script>
+		<% end %>
+
+		<%= yield %>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    alexa_verifier (1.0.0)
+    bson (4.12.1)
+    json (2.5.1)
+    mongo (2.15.0)
+      bson (>= 4.8.2, < 5.0.0)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
+    rack (2.2.3)
+    rack-protection (2.1.0)
+      rack
+    ruby2_keywords (0.0.5)
+    sinatra (2.1.0)
+      mustermann (~> 1.0)
+      rack (~> 2.2)
+      rack-protection (= 2.1.0)
+      tilt (~> 2.0)
+    tilt (2.0.10)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  alexa_verifier (~> 1.0)
+  json (~> 2.5)
+  mongo (~> 2.15)
+  sinatra (~> 2.1)
+
+BUNDLED WITH
+   2.2.7

@@ -1,0 +1,42 @@
+<main id="dashboard-page">
+	<h1>Your Cacti</h1>
+
+	<div id="cacti">
+		<div id="new-cactus">
+			<form method="POST" action="/api/newcactus">
+				<div>
+					<label for="new-cactus-name">New Cactus</label>
+					<span id="hint">
+						<ion-icon name="information-circle-outline"></ion-icon>
+						<span id="hint-text">The unique name your cactus will be identified as.</span>
+					</span>
+				</div>
+				<input id="new-cactus-name" name="cactus_name" type="text" autocomplete="off" placeholder="Name" required>
+				<button type="submit" disabled><ion-icon name="add-outline"></ion-icon> <span>Add</span></button>
+				<p class="error"></p>
+			</form>
+		</div>
+		<div id="headers">
+			<div>Cactus Name</div>
+			<div>Next Watering</div>
+			<div>Next Feeding</div>
+			<div>Actions</div>
+		</div>
+		<% @user.cacti.each do |cactus| %>
+			<div class="cactus">
+				<div>
+					<input type="text" class="cactus-name" name="cactus_name" data-name="<%= cactus.name %>" autocomplete="off" placeholder="Name" value="<%= cactus.name %>" required>
+					<p class="error"></p>
+				</div>
+				<div class="next-water"><%= @user.is_growing_season? ? cactus.next_watering : "Dry Soil" %></div>
+				<div class="next-feed"><%= @user.is_growing_season? ? cactus.next_feeding : "Spring" %></div>
+				<div>
+					<button class="water"><ion-icon name="water-outline"></ion-icon></button>
+					<button class="feed"><ion-icon name="restaurant-outline"></ion-icon></button>
+					<button class="remove"><ion-icon name="remove-circle-outline"></ion-icon></button>
+				</div>
+			</div>
+		<% end %>
+	</div>
+	<script src="/js/dashboard.js"></script>
+</main>

@@ -1,0 +1,23 @@
+<main id="login-page">
+	<p>"Alexa, ask cactus carer what is my user code?"</p>
+	<div id="login-wrapper" style="transform: translateX(100%) translateY(100%);">
+		<svg id="login-container-triangle" viewBox="0 0 10 100" xmlns="http://www.w3.org/2000/svg">
+		</defs>
+			<path d="m10,100l0,-100l-10,100l10,0z" />
+		</svg>
+		<div id="login-container">
+			<form method="POST" action="/login">
+				<h1>Log in to your account</h1>
+				<label for="user-code">User Code</label>
+				<span id="hint">
+					<ion-icon name="information-circle-outline"></ion-icon>
+					<span id="hint-text">The 6 letter code you can get by saying "Alexa, ask cactus carer what is my user code?"</span>
+				</span>
+				<input id="user-code" name="user_code" type="text" minlength="6" maxlength="6" required>
+				<p class="error"></p>
+				<button type="submit" disabled>Log In</button>
+			</form>
+			<script src="/js/login.js"></script>
+		</div>
+	</div>
+</main>
